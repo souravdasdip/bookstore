@@ -9,7 +9,7 @@ const Book = ({ book }) => {
   };
 
   return (
-    <div class="p-4 md:w-1/4">
+    <div class="p-4 md:w-1/2 lg:w-1/4">
       <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
         <img
           src={book?.formats["image/jpeg"]}
