@@ -19,7 +19,7 @@ Store: Redux toolkit (path: './redux/store')
 
 Services: Axios (path: './services')
 
-Constants: path: './constants'
+Constants: (path: './constants')
 ```
 
 ## License
