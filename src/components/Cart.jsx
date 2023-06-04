@@ -19,6 +19,14 @@ const Cart = ({ open__cart, setopen__cart }) => {
     dispatch(cartDetailActions.removeToCart(book));
   };
 
+  const handleCheckout = () => {
+    const process_buy = window.confirm("Confirm order?");
+    if (process_buy) {
+      window.alert("Thank you for shopping with us...");
+      dispatch(cartDetailActions.removeAllToCart());
+    }
+  };
+
   const style = {
     position: "absolute",
     top: "50%",
@@ -39,7 +47,16 @@ const Cart = ({ open__cart, setopen__cart }) => {
         <Typography variant="h4" component="h2">
           Cart
         </Typography>
-        <Typography variant="h6">Total: {total}tk</Typography>
+        {total > 0 && <Typography variant="h6">Total: {total}tk</Typography>}
+        {cartDetail?.length > 0 && (
+          <Button
+            style={{ marginTop: 20, marginBottom: 50 }}
+            variant="contained"
+            onClick={handleCheckout}
+          >
+            Proceed to checkout
+          </Button>
+        )}
         <div class="flex flex-wrap -m-4">
           {cartDetail?.length > 0 ? (
             <>
@@ -74,12 +91,6 @@ const Cart = ({ open__cart, setopen__cart }) => {
                   </div>
                 );
               })}
-              <Button
-                style={{ marginLeft: 15, marginTop: 20 }}
-                variant="contained"
-              >
-                Proceed to checkout
-              </Button>
             </>
           ) : (
             <span className="p-5">No book added to cart!</span>

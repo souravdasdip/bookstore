@@ -19,6 +19,9 @@ const cartDetailSlice = createSlice({
             if (indexToDelete !== -1) {
                 state.cartDetail.splice(indexToDelete, 1);
             }
+        },
+        removeAllToCart: (state) => {
+            state.cartDetail = []
         }
     }
 });
