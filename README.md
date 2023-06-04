@@ -15,11 +15,11 @@ npm run dev
 ## Usage
 
 ```javascript
-Store: Redux toolkit (path: './redux/store')
+Store: (path: "./redux/store");
 
-Services: Axios (path: './services')
+Services: (path: "./services");
 
-Constants: (path: './constants')
+Constants: (path: "./constants");
 ```
 
 ## License
