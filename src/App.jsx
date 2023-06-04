@@ -1,4 +1,5 @@
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { CircularProgress } from "@mui/material";
 import Badge from "@mui/material/Badge";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -48,8 +49,13 @@ function App() {
           <div class="flex flex-wrap">
             <div class="container px-5 py-24 mx-auto">
               <div class="flex flex-wrap -m-4">
-                {booksDetail &&
-                  booksDetail?.results?.map((book) => <Book book={book} />)}
+                {booksDetail ? (
+                  booksDetail?.results?.map((book) => <Book book={book} />)
+                ) : (
+                  <span className="mx-auto">
+                    <CircularProgress />
+                  </span>
+                )}
               </div>
             </div>
           </div>

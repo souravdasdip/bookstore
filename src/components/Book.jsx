@@ -13,7 +13,7 @@ const Book = ({ book }) => {
       <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
         <img
           src={book?.formats["image/jpeg"]}
-          class="lg:h-48 md:h-36 w-full object-contain object-center"
+          class="lg:h-48 md:h-36 w-full object-cover"
           alt="book"
         />
         <div class="p-6">
