@@ -47,8 +47,8 @@ function App() {
 
           {/* books */}
           <div class="flex flex-wrap">
-            <div class="container px-5 py-24 mx-auto">
-              <div class="flex flex-wrap -m-4">
+            <div class="container px-5 py-5 mx-auto">
+              <div class="flex flex-wrap m-4">
                 {booksDetail ? (
                   booksDetail?.results?.map((book) => <Book book={book} />)
                 ) : (
