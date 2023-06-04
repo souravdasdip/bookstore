@@ -1,5 +1,5 @@
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, TextField } from "@mui/material";
 import Badge from "@mui/material/Badge";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -20,6 +20,7 @@ function App() {
   const { cartDetail } = useSelector((state) => state.cartDetail);
 
   const [open__cart, setopen__cart] = useState(false);
+  const [search__input, setsearch__input] = useState("");
 
   const handleOpenCart = () => {
     setopen__cart((prev) => !prev);
@@ -45,12 +46,28 @@ function App() {
             </p>
           </div>
 
+          {/* search */}
+          <section className="w-full mt-10 grid place-items-center">
+            <TextField
+              value={search__input}
+              onChange={(e) => setsearch__input(e.target.value)}
+              className="w-2/4"
+              placeholder="Search"
+            />
+          </section>
+
           {/* books */}
           <div class="flex flex-wrap">
             <div class="container px-5 py-5 mx-auto">
               <div class="flex flex-wrap m-4">
                 {booksDetail ? (
-                  booksDetail?.results?.map((book) => <Book book={book} />)
+                  booksDetail?.results
+                    ?.filter((book) =>
+                      book.title
+                        .toLowerCase()
+                        .includes(search__input.toLowerCase())
+                    )
+                    .map((book) => <Book book={book} />)
                 ) : (
                   <span className="mx-auto">
                     <CircularProgress />
