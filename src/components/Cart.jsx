@@ -1,11 +1,11 @@
-import { Box, Button, Modal, Typography } from "@mui/material";
-import React from "react";
+import { Box, Button, Modal, TextField, Typography } from "@mui/material";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { cartDetailActions } from "../redux/features/cartDetail";
 
 const Cart = ({ open__cart, setopen__cart }) => {
   const { cartDetail } = useSelector((state) => state.cartDetail);
-  // const [total, settotal] = useState(0);
+  const [email, setemail] = useState("");
 
   const total = cartDetail.reduce(function (accumulator, currentValue) {
     console.log(currentValue);
@@ -24,6 +24,7 @@ const Cart = ({ open__cart, setopen__cart }) => {
     if (process_buy) {
       window.alert("Thank you for shopping with us...");
       dispatch(cartDetailActions.removeAllToCart());
+      setemail("");
     }
   };
 
@@ -47,15 +48,29 @@ const Cart = ({ open__cart, setopen__cart }) => {
         <Typography variant="h4" component="h2">
           Cart
         </Typography>
+        <hr />
+        <br />
         {total > 0 && <Typography variant="h6">Total: {total}tk</Typography>}
+        {/* <hr />
+        <br /> */}
         {cartDetail?.length > 0 && (
-          <Button
-            style={{ marginTop: 20, marginBottom: 50 }}
-            variant="contained"
-            onClick={handleCheckout}
-          >
-            Proceed to checkout
-          </Button>
+          <form onSubmit={handleCheckout} className="mt-3">
+            <h6>Email: </h6>
+            <TextField
+              value={email}
+              onChange={(e) => setemail(e.target.value)}
+              placeholder="Please submit you email."
+              required
+            />
+            <br />
+            <Button
+              style={{ marginTop: 20, marginBottom: 50 }}
+              variant="contained"
+              type="submit"
+            >
+              Proceed to checkout
+            </Button>
+          </form>
         )}
         <div class="flex flex-wrap -m-4">
           {cartDetail?.length > 0 ? (
