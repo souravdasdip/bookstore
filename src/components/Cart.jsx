@@ -1,4 +1,4 @@
-import { Box, Button, Modal, TextField, Typography } from "@mui/material";
+import { Box, Button, Modal, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { cartDetailActions } from "../redux/features/cartDetail";
@@ -57,8 +57,10 @@ const Cart = ({ open__cart, setopen__cart }) => {
         {cartDetail?.length > 0 && (
           <form onSubmit={handleCheckout} className="mt-3">
             <h6>Email: </h6>
-            <TextField
+            <input
+              pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
               value={email}
+              className="p-4 border-2 border-gray-200 border-opacity-60 rounded-lg"
               onChange={(e) => setemail(e.target.value)}
               placeholder="Please submit you email."
               required
