@@ -49,17 +49,17 @@ const Book = ({ book }) => {
               <span> {author?.name}</span>
             ))}
           </p>
-          <div
-            class="flex items-center flex-wrap cursor-pointer"
-            onClick={handleAddToCart}
-          >
+          <div class="flex items-center flex-wrap cursor-pointer">
             <a
-              class="mr-5 text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
+              class="mr-7 text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
               onClick={handleSingleBook}
             >
               View
             </a>
-            <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+            <a
+              onClick={handleAddToCart}
+              class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
+            >
               Add to cart
               <svg
                 class="w-4 h-4 ml-2"
