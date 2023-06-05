@@ -19,7 +19,8 @@ const Cart = ({ open__cart, setopen__cart }) => {
     dispatch(cartDetailActions.removeToCart(book));
   };
 
-  const handleCheckout = () => {
+  const handleCheckout = (e) => {
+    e.preventDefault();
     const process_buy = window.confirm("Confirm order?");
     if (process_buy) {
       window.alert("Thank you for shopping with us...");
