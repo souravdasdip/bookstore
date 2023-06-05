@@ -104,12 +104,6 @@ const Book = ({ book }) => {
                 class="flex items-center flex-wrap cursor-pointer"
                 onClick={handleAddToCart}
               >
-                <a
-                  class="mr-5 text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
-                  onClick={handleSingleBook}
-                >
-                  View
-                </a>
                 <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
                   Add to cart
                   <svg
